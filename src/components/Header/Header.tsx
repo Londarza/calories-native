@@ -21,14 +21,14 @@ const Header = () => {
             onPress={() => router.back()}
             icon={
               <Icon
-                name="arrow-left"
-                type="SimpleLineIcons"
-                color="white"
-                size={16}
+                name="keyboard-arrow-left"
+                type="MaterialIcons"
+                color="black"
+                size={24}
               />
             }
             buttonStyle={{
-              backgroundColor: '#4ecb71', // color de fondo del botón
+              backgroundColor: 'transparent', // color de fondo del botón
               borderRadius: 12,           // para que sea circular
               padding: 12,                // tamaño del botón
             }}

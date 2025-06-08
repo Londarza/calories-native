@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 
-// 4:42 para continuar
+// 5:11 para continuar
 
 export default function Home() {
   const router = useRouter()
