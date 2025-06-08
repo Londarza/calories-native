@@ -1,16 +1,22 @@
-import { Text, View } from "react-native";
+import Header from "@/src/components/Header/Header";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function AddFood() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.container}
     >
-      
+      <Header/>
       <Text>Esta es la Pagina para agregar comida</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container:{
+    padding: 12,
+    alignItems: "center",
+    backgroundColor: '#fff',
+    flex: 1
+  }
+})
