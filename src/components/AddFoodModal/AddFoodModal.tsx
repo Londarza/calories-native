@@ -1,10 +1,30 @@
 import { IAddFoodModalsProps } from '@/src/constants/types'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Modal, StyleSheet, Text, View } from 'react-native'
 import { Button, Icon, Input } from 'react-native-elements'
 
 
 const AddFoodModal: FC<IAddFoodModalsProps> = ({ onClose, isVisible }) => {
+
+    const [calories, setCalories] = useState<string>('')
+    const [foodName, setFoodName] = useState<string>('')
+    const [foodPorcion, setFoodPorcion] = useState<string>('')
+
+    const handleOnPress = ()=>{
+
+
+
+        
+        onClose()
+    }
+
+    useEffect(() => {
+        setCalories('')
+        setFoodName('')
+        setFoodPorcion('')
+    }, [isVisible])
+
+
     return (
         <Modal
             visible={isVisible}
@@ -33,7 +53,7 @@ const AddFoodModal: FC<IAddFoodModalsProps> = ({ onClose, isVisible }) => {
                     </View>
                     <View style={styles.formItem}>
                         <View style={styles.inputContainer}>
-                            <Input />
+                            <Input value={calories} onChangeText={(text: string) => setCalories(text)} />
                         </View>
                         <View style={styles.legendContainer}>
                             <Text style={styles.legend}>KCAL</Text>
@@ -41,7 +61,7 @@ const AddFoodModal: FC<IAddFoodModalsProps> = ({ onClose, isVisible }) => {
                     </View>
                     <View style={styles.formItem}>
                         <View style={styles.inputContainer}>
-                            <Input />
+                            <Input value={foodName} onChangeText={(text: string) => setFoodName(text)} />
                         </View>
                         <View style={styles.legendContainer}>
                             <Text style={styles.legend}>Nombre</Text>
@@ -49,16 +69,18 @@ const AddFoodModal: FC<IAddFoodModalsProps> = ({ onClose, isVisible }) => {
                     </View>
                     <View style={styles.formItem}>
                         <View style={styles.inputContainer}>
-                            <Input />
+                            <Input value={foodPorcion} onChangeText={(text: string) => setFoodPorcion(text)} />
                         </View>
                         <View style={styles.legendContainer}>
                             <Text style={styles.legend}>Porcion</Text>
                         </View>
                     </View>
                     <View style={styles.addButtonContainer}>
-                            <Button
-                            
+                        <Button
+                            disabled={foodName.trim() === '' || calories.trim() === '' || foodPorcion.trim() === ''}
                             title={'Agregar'}
+                            onPress={handleOnPress}
+
                             icon={
                                 <Icon
                                     name="add-circle-outline"
@@ -118,7 +140,7 @@ const styles = StyleSheet.create({
     legend: {
         fontWeight: 500
     },
-    addButtonContainer:{
+    addButtonContainer: {
         alignItems: 'flex-end'
     }
 
