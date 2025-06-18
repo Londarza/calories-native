@@ -3,3 +3,10 @@ export type IAddFoodModalsProps= {
     isVisible?: boolean;
 
 }
+
+export interface IMeal {
+    calories: string;
+    name: string;
+    portion: string
+
+}

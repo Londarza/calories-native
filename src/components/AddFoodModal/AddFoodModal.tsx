@@ -15,7 +15,7 @@ const AddFoodModal: FC<IAddFoodModalsProps> = ({ onClose, isVisible }) => {
 
 
         
-        onClose()
+        onClose() 
     }
 
     useEffect(() => {
